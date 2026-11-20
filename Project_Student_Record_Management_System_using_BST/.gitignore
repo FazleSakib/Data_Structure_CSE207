@@ -1,0 +1,23 @@
+# Compiled executables
+*.exe
+*.out
+*.app
+StudentRecordSystem
+
+# Object and precompiled header files
+*.o
+*.obj
+*.gch
+*.pch
+
+# Build folders
+build/
+bin/
+obj/
+
+# VS Code local workspace settings
+.vscode/
+
+# Operating System files
+.DS_Store
+Thumbs.db
