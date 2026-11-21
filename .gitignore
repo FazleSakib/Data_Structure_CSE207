@@ -18,3 +18,23 @@ cmake-build-debug/
 # OS-generated files
 .DS_Store
 Thumbs.db
+# Compiled executables and binaries
+*.exe
+*.out
+*.app
+
+# Compiled object and library files
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+
+# VS Code & JetBrains (CLion) settings
+.vscode/
+.idea/
+cmake-build-debug/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
