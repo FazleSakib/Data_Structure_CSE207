@@ -87,5 +87,6 @@ public:
             temp-> data = node->data;
             node->right = deleteHelper(node->right , temp->data.getRoll());
         }
+        return temp;
     }
 };
