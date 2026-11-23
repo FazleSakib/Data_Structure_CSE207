@@ -21,7 +21,6 @@ class StudentBST
 private:
     Node *root;
 
-public:
     // recursive helper to sort by roll
     Node *insertHelper(Node *temp, Student s)
     {
@@ -83,10 +82,91 @@ public:
                 return node;
             }
 
-            Node* node = findMin(node->right);
+            Node* node = findMin(temp->right);
             temp-> data = node->data;
-            node->right = deleteHelper(node->right , temp->data.getRoll());
+            temp->right = deleteHelper(temp->right , temp->data.getRoll());
         }
         return temp;
     }
+
+    void inorderHelper(Node* temp){
+        if(temp == nullptr){
+            return;
+        }
+        inorderHelper(temp->left);
+        temp-> data.display();
+            cout<< "\n";
+        inorderHelper(temp->right);
+    }
+
+    public:
+
+    StudentBST(){
+        root = nullptr;
+    }
+
+    bool checkRecord(int roll){
+        Node* temp = root;
+        while(temp!= nullptr){
+            if(roll == temp->data.getRoll()){
+                return true;
+            }
+            else if( roll < temp->data.getRoll()){
+                temp = temp->left;
+            }
+            else if(roll> temp->data.getRoll()){
+                temp= temp->right;
+            }
+        }
+        return false;
+    }
+
+    void createRecord(Student s){
+        if(checkRecord(s.getRoll())){
+            cout<<"Already account created.\n Failed to create Student Record";
+            return;
+        }
+
+        root = insertHelper(root ,s);
+        cout<< "Successfully Created Student Record of "<< s.getRoll()<< "\n";
+
+    }
+
+    void searchRecord(int roll){
+        Node* temp = root;
+        while(temp!= nullptr){
+            if(roll == temp->data.getRoll()){
+                cout<< "Student Record Found\n";
+                temp->data.display();
+                return;
+            }
+            else if(roll < temp->data.getRoll()){
+                temp= temp-> left;
+            }
+            else{
+                temp= temp-> right;
+            }
+        }
+        cout<< "Student data"<< roll << "didnt found \n";
+    }
+
+    int deleteRecord(int roll){
+        if(!checkRecord(roll)){
+            return -1;
+        }
+        root = deleteHelper(root, roll);
+        return 0;
+    }
+
+    void showRecord(){
+        if(root == nullptr){
+            cout<< "No student Record is available\n";
+            return;
+        }
+        cout<< "Student Record :: \n";
+        inorderHelper(root);
+    }
+
+
+
 };
