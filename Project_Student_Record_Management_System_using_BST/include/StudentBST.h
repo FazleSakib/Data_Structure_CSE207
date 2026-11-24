@@ -1,3 +1,5 @@
+#ifndef STUDENT_BST_H
+#define STUDENT_BST_H
 #include <iostream>
 #include <fstream>
 #include "Student.h"
@@ -133,6 +135,10 @@ public:
         ofstream file("data/students.csv");
         if (!file)
         {
+            file.open("../data/students.csv");
+        }
+        if (!file)
+        {
             return;
         }
 
@@ -144,6 +150,10 @@ public:
     {
         // input file stream
         ifstream file("data/students.csv");
+        if (!file)
+        {
+            file.open("../data/students.csv");
+        }
         if (!file)
         {
             return;
@@ -250,3 +260,5 @@ public:
         inorderHelper(root);
     }
 };
+
+#endif
