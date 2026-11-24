@@ -9,6 +9,8 @@ StudentRecordSystem
 *.obj
 *.gch
 *.pch
+tempCodeRunnerFile*
+*.exe
 
 # Build folders
 build/
