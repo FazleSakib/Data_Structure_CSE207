@@ -1,3 +1,6 @@
+#ifndef STUDENT_H
+#define STUDENT_H
+
 #include <string>
 #include <iostream>
 using namespace std;
@@ -79,3 +82,5 @@ public:
         cout << "CGPA        :     " << cgpa << endl;
     }
 };
+
+#endif
